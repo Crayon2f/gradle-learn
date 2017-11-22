@@ -1,0 +1,43 @@
+buildscript {
+    ext {
+        springBootVersion = '1.5.4.RELEASE'
+        lombokVersion="1.16.12"
+    }
+    repositories {
+        maven { url "http://repo1.maven.org/maven2/" }
+        maven { url "http://repo.spring.io/release/" }
+        maven { url "https://oss.sonatype.org/service/local/staging/deploy/maven2/" }
+        maven { url "http://mvnrepository.com/artifact/"}
+        jcenter()
+    }
+    dependencies {
+        classpath "org.springframework.boot:spring-boot-gradle-plugin:${springBootVersion}"
+    }
+}
+allprojects {
+    group 'com.crayon2f'
+    version '1.0-SNAPSHOT'
+    apply plugin: 'org.springframework.boot'
+    apply plugin: 'java'
+    sourceCompatibility = JavaVersion.VERSION_1_8
+
+    def defaultEncoding = 'UTF-8'
+    tasks.withType(AbstractCompile).each {
+        it.options.encoding = defaultEncoding
+    }
+    repositories {
+        mavenLocal()
+        jcenter()
+    }
+    dependencies {
+        testCompile group: 'junit', name: 'junit'
+        compileOnly "org.projectlombok:lombok:${lombokVersion}"
+        compile "org.springframework.boot:spring-boot-starter-aop"
+        compile "org.springframework.boot:spring-boot-starter-web"
+        compile "org.springframework.boot:spring-boot-configuration-processor"
+    }
+}
+
+subprojects { // 子项目依赖
+
+}
