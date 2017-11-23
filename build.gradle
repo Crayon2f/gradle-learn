@@ -32,12 +32,16 @@ allprojects {
     dependencies {
         testCompile group: 'junit', name: 'junit'
         compileOnly "org.projectlombok:lombok:${lombokVersion}"
-        compile "org.springframework.boot:spring-boot-starter-aop"
-        compile "org.springframework.boot:spring-boot-starter-web"
-        compile "org.springframework.boot:spring-boot-configuration-processor"
     }
 }
 
 subprojects { // 子项目依赖
 
+}
+
+dependencies {
+    compile "org.springframework.boot:spring-boot-starter-aop"
+    compile "org.springframework.boot:spring-boot-starter-web"
+    compile "org.springframework.boot:spring-boot-configuration-processor"
+    compile group: "org.springframework.boot", name: "spring-boot-starter-thymeleaf", version: "${springBootVersion}"
 }
