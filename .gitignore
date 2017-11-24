@@ -27,3 +27,4 @@ gradle-constant/src/test/
 gradle-dao/src/test/
 gradle-kit/src/test/
 src/test/
+out/
