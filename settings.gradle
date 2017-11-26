@@ -1,3 +1,4 @@
 rootProject.name = 'gradle-main'
 include('gradle-dao', 'gradle-kit','gradle-constant')
+include 'gradle-timer'
 

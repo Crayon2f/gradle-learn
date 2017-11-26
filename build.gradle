@@ -41,10 +41,16 @@ subprojects { // 子项目依赖
 
 dependencies {
 //    compile "org.springframework.boot:spring-boot-starter-aop"
-    compile "org.springframework.boot:spring-boot-starter-web"
-//    compile group: "org.springframework.boot", name: "spring-boot-starter-thymeleaf", version: "${springBootVersion}"
-
+//    compile "org.springframework.boot:spring-boot-starter-web"
+    compile group: "org.springframework.boot", name: "spring-boot-starter-thymeleaf", version: "${springBootVersion}"
+    compile group: "org.springframework.boot", name: "spring-boot-devtools", version:"${springBootVersion}"
     compile project(":gradle-dao")
     compile project(":gradle-kit")
     compile project(":gradle-constant")
+}
+
+project(":gradle-timer"){
+    dependencies{
+        compile "org.springframework.boot:spring-boot-starter-web"
+    }
 }

@@ -11,10 +11,11 @@ import org.springframework.web.servlet.ModelAndView;
 @Controller
 public class IndexController {
 
-    @RequestMapping("/index")
-    public ModelAndView index(Model model) {
+    @RequestMapping("/home")
+    public ModelAndView index() {
 
-        model.addAttribute("title", "gradle");
-        return new ModelAndView("index");
+        ModelAndView view = new ModelAndView("index");
+        view.addObject("title", "gradle");
+        return view;
     }
 }
