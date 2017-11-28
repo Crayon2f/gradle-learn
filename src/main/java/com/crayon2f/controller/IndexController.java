@@ -1,9 +1,10 @@
 package com.crayon2f.controller;
 
-import com.crayon2f.dao.UserDao;
+import com.crayon2f.dao.mapper.UserMapper;
+import com.mysql.jdbc.Driver;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.autoconfigure.EnableAutoConfiguration;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.servlet.ModelAndView;
 
@@ -16,7 +17,7 @@ import javax.servlet.http.HttpServletRequest;
 public class IndexController {
 
     @Autowired
-    private UserDao userDao;
+    private UserMapper userMapper;
 
     @RequestMapping("/home")
     public ModelAndView index(HttpServletRequest request) {
@@ -25,7 +26,7 @@ public class IndexController {
         ModelAndView view = new ModelAndView("index");
 
         view.addObject("title", "gradle");
-        view.addObject("user", userDao.fetchById(1));
+        view.addObject("user", userMapper.fetchById(1));
         return view;
     }
 }
